@@ -21,9 +21,17 @@ npm install
 cp .env.example .env
 ```
 
-3. Edit `.env` file with your email configuration (see options below)
+3. Edit `.env` file with your email configuration (see Email Setup section below)
 
-### Email Setup
+4. **Set up Google Analytics & Tracking** (Important for website statistics):
+   - See [GOOGLE_ANALYTICS_SETUP.md](GOOGLE_ANALYTICS_SETUP.md) for detailed instructions
+   - Get your Google Analytics 4 Measurement ID
+   - Get your Google Search Console verification code
+   - Update tracking IDs in `public/index.html`
+
+### Running the Application
+
+Start the server:
 
 You have two options for email configuration:
 
@@ -95,6 +103,30 @@ Edit the following in `public/index.html`:
 5. **Stats**: Lines 88-98 (Experience, projects, clients)
 6. **Contact Info**: Lines 186-219 (Email, phone, Telegram, Discord)
 7. **Footer**: Line 235 (Your name)
+
+### Google Analytics & Tracking Setup
+
+**Important**: To track website visitors, traffic sources, and user behavior:
+
+1. **Read the complete guide**: [GOOGLE_ANALYTICS_SETUP.md](GOOGLE_ANALYTICS_SETUP.md)
+2. **Replace placeholder IDs** in `public/index.html`:
+   - `G-XXXXXXXXXX` → Your Google Analytics 4 Measurement ID (2 places)
+   - `GTM-XXXXXXX` → Your Google Tag Manager Container ID (2 places)
+   - `YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE` → Your Search Console verification code
+
+**What you'll get:**
+- Real-time visitor tracking
+- Traffic source analysis (Google, social media, direct, etc.)
+- User behavior and page flow
+- Search console data (impressions, clicks, keywords)
+- Device and location statistics
+- Custom event tracking (form submissions, button clicks, social links)
+
+See [GOOGLE_ANALYTICS_SETUP.md](GOOGLE_ANALYTICS_SETUP.md) for detailed step-by-step instructions.
+
+### Profile Picture
+
+Replace `public/images/deyan.jpg` with your own photo (recommended size: 400x400px, square format).
 
 ### Colors
 
@@ -229,6 +261,16 @@ The contact form sends emails using Nodemailer. Make sure to:
 
 ## 🌐 Deployment
 
+### Before Deployment Checklist
+
+1. ✅ Update Google Analytics IDs in `index.html`
+2. ✅ Replace `https://www.deyanmandadzhiev.com` with your actual domain
+3. ✅ Configure environment variables
+4. ✅ Test contact form locally
+5. ✅ Add your profile photo to `public/images/`
+6. ✅ Create social sharing images (`og-image.jpg` and `twitter-card.jpg`)
+7. ✅ Update all personal information in `index.html`
+
 ### Heroku
 ```bash
 heroku create your-app-name
@@ -240,6 +282,37 @@ heroku config:set EMAIL_TO=your-email@gmail.com
 
 ### Vercel/Netlify
 Configure environment variables in the platform's dashboard.
+
+### After Deployment
+
+1. Verify Google Search Console ownership
+2. Submit sitemap to Search Console: `https://yourdomain.com/sitemap.xml`
+3. Test Google Analytics tracking using Real-Time reports
+4. Test contact form functionality
+5. Test language switching
+6. Check mobile responsiveness
+7. Run PageSpeed Insights: https://pagespeed.web.dev/
+
+## 📊 Analytics & Tracking
+
+This site includes comprehensive tracking setup:
+
+- **Google Analytics 4**: Visitor tracking, traffic sources, user behavior
+- **Google Tag Manager**: Event tracking, custom metrics
+- **Google Search Console**: Search performance, indexing, SEO insights
+- **Custom Events**: Form submissions, button clicks, social links, scroll depth, language switching
+
+See [GOOGLE_ANALYTICS_SETUP.md](GOOGLE_ANALYTICS_SETUP.md) for complete setup instructions.
+
+The `analytics-events.js` file automatically tracks:
+- Contact form submissions
+- Language changes
+- CTA button clicks
+- Social media link clicks
+- Navigation clicks
+- Scroll depth (25%, 50%, 75%, 100%)
+- Time on page
+- Mobile menu interactions
 
 ## 📱 Browser Support
 

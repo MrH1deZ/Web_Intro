@@ -21,17 +21,13 @@ npm install
 cp .env.example .env
 ```
 
-3. Edit `.env` file with your details:
-```
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-EMAIL_TO=your-email@gmail.com
-PORT=3000
-```
+3. Edit `.env` file with your email configuration (see options below)
 
-### Email Setup (Gmail)
+### Email Setup
 
-To use the contact form with Gmail:
+You have two options for email configuration:
+
+#### **Option 1: Gmail (Recommended for personal use)**
 
 1. Go to your Google Account settings
 2. Enable 2-factor authentication
@@ -39,7 +35,43 @@ To use the contact form with Gmail:
    - Go to Security > 2-Step Verification > App passwords
    - Select "Mail" and "Windows Computer" (or other)
    - Copy the generated password
-4. Use this password in your `.env` file as `EMAIL_PASS`
+4. Configure your `.env` file:
+```
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-16-character-app-password
+EMAIL_TO=your-email@gmail.com
+PORT=3000
+```
+
+#### **Option 2: Custom SMTP Server**
+
+For custom email servers (business email, hosting providers, etc.):
+
+1. Get SMTP credentials from your email provider
+2. Configure your `.env` file:
+```
+SMTP_HOST=smtp.yourdomain.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_REJECT_UNAUTHORIZED=true
+EMAIL_USER=your-email@yourdomain.com
+EMAIL_PASS=your-email-password
+EMAIL_TO=recipient@yourdomain.com
+PORT=3000
+```
+
+**Common SMTP Settings:**
+- **Gmail**: smtp.gmail.com, port 587 (TLS) or 465 (SSL)
+- **Outlook/Hotmail**: smtp-mail.outlook.com, port 587
+- **Yahoo**: smtp.mail.yahoo.com, port 587
+- **SendGrid**: smtp.sendgrid.net, port 587
+- **Mailgun**: smtp.mailgun.org, port 587
+- **cPanel/WHM**: Check with your hosting provider
+
+**Port Information:**
+- Port 587: TLS (SMTP_SECURE=false)
+- Port 465: SSL (SMTP_SECURE=true)
+- Port 25: Usually blocked by ISPs
 
 ### Running the Application
 
@@ -87,37 +119,97 @@ To change to **red theme**, update:
 
 ### Skills
 
-Edit the skills section in `public/index.html` (lines 105-155) to add/remove skill cards.
+Edit the skills section in `public/index.html` to add/remove skill cards, or update `public/js/translations.js` for multilingual content.
 
 ## 🎨 Features
 
 - ✅ Responsive design (mobile, tablet, desktop)
+- ✅ **Multilingual support (English & Bulgarian)** with SEO optimization
+- ✅ Language switcher in navigation menu
 - ✅ Smooth scroll animations
 - ✅ Typewriter effect on hero section
 - ✅ Animated statistics counter
 - ✅ Neon glow effects on buttons
 - ✅ Interactive skill cards
-- ✅ Contact form with email integration
+- ✅ Contact form with email integration (Gmail & Custom SMTP)
 - ✅ Mobile-friendly navigation
 - ✅ Cursor glow effects
 - ✅ Button ripple effects
 - ✅ Intersection Observer animations
+- ✅ **Full SEO optimization** with meta tags, Open Graph, Twitter Cards, Schema.org
+- ✅ **Hreflang tags** for multilingual SEO
+- ✅ AI & Automation expertise showcase
 
-## 📁 Project Structure
+## 🌍 Multilingual Support
+
+The website supports **English (primary)** and **Bulgarian (secondary)** with full SEO optimization:
+
+### Features:
+- **Language Switcher**: Globe icon in navigation menu to toggle between EN/BG
+- **SEO Optimized**: Proper hreflang tags, locale meta tags, and translated content
+- **Persistent**: Language preference saved in localStorage and URL
+- **Dynamic**: All content updates without page reload
+
+### How to Use:
+1. Click the language button (globe icon) in the navigation menu
+2. Language switches instantly between English and Bulgarian
+3. Preference is saved and persists across sessions
+4. URL updates with language parameter (`?lang=en` or `?lang=bg`)
+
+### Translation Files:
+- **public/js/translations.js**: Contains all English and Bulgarian translations
+- Fully translated: Navigation, Hero, About, Skills, Contact, Footer
+
+### SEO Features:
+- Hreflang tags for both languages
+- Separate sitemap entries for each language
+- Open Graph locale alternates
+- Language-specific meta tags and keywords
+
+See [MULTILINGUAL_GUIDE.md](MULTILINGUAL_GUIDE.md) for detailed documentation.
+
+## 📝 Customization
+
+### Adding Your Profile Picture
+
+1. Save your professional photo as `profile.jpg` in the `public/images/` folder
+2. Recommended size: 800x800 pixels (square format)
+3. The image will automatically fit in the gold-framed profile section
+
+### Personal Information
+
+Update your information in the HTML and translation files:
+
+1. **Meta Tags**: Update SEO tags in `public/index.html` `<head>` section
+2. **Social Links**: Update LinkedIn and GitHub URLs in navigation
+3. **Contact Info**: Update email, phone, Telegram, Discord in contact section
+4. **Translations**: Edit `public/js/translations.js` to update content in both languages
+5. **Stats**: Update years of experience, projects, clients numbers
+
+**Note**: For multilingual content, update both `en` and `bg` sections in `public/js/translations.js`
+
+### Colors
+
+The theme uses CSS variables in `public/css/style.css` (lines 2-11):
 
 ```
 Web_Intro/
 ├── public/
 │   ├── css/
-│   │   └── style.css       # All styles
+│   │   └── style.css           # All styles
 │   ├── js/
-│   │   └── main.js         # All JavaScript
-│   └── index.html          # Main HTML
-├── server.js               # Express server
-├── package.json            # Dependencies
-├── .env                    # Environment variables (create this)
-├── .env.example            # Example environment file
-└── README.md               # This file
+│   │   ├── translations.js     # Language translations (EN/BG)
+│   │   └── main.js             # JavaScript with language switching
+│   ├── images/
+│   │   └── profile.jpg         # Your profile photo
+│   └── index.html              # Main HTML with SEO tags
+├── server.js                   # Express server with SMTP support
+├── package.json                # Dependencies
+├── .env                        # Environment variables (create this)
+├── .env.example                # Example environment file
+├── README.md                   # This file
+├── SEO_GUIDE.md                # SEO optimization documentation
+└── MULTILINGUAL_GUIDE.md       # Multilingual features documentation
 ```
 
 ## 🛠️ Technologies Used

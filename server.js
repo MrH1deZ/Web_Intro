@@ -33,14 +33,35 @@ app.post('/api/contact', async (req, res) => {
     }
 
     try {
-        // Create transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
+        // Create transporter with support for both Gmail and custom SMTP
+        let transporterConfig;
+        
+        if (process.env.SMTP_HOST && process.env.SMTP_PORT) {
+            // Custom SMTP configuration
+            transporterConfig = {
+                host: process.env.SMTP_HOST,
+                port: parseInt(process.env.SMTP_PORT),
+                secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+                auth: {
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS
+                },
+                tls: {
+                    rejectUnauthorized: process.env.SMTP_REJECT_UNAUTHORIZED !== 'false'
+                }
+            };
+        } else {
+            // Gmail configuration (default)
+            transporterConfig = {
+                service: 'gmail',
+                auth: {
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS
+                }
+            };
+        }
+        
+        const transporter = nodemailer.createTransport(transporterConfig);
 
         // Email options
         const mailOptions = {

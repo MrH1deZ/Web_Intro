@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=en</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.deyanmandadzhiev.com/?lang=bg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.deyanmandadzhiev.com/?lang=en"/>
+  </url>
+  
+  <!-- Homepage - Bulgarian -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=bg</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.deyanmandadzhiev.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.deyanmandadzhiev.com/?lang=bg"/>
+  </url>
+  
+  <!-- About Section - English -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=en#about</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.deyanmandadzhiev.com/?lang=bg#about"/>
+  </url>
+  
+  <!-- About Section - Bulgarian -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=bg#about</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.deyanmandadzhiev.com/?lang=en#about"/>
+  </url>
+  
+  <!-- Skills Section - English -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=en#skills</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.deyanmandadzhiev.com/?lang=bg#skills"/>
+  </url>
+  
+  <!-- Skills Section - Bulgarian -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=bg#skills</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.deyanmandadzhiev.com/?lang=en#skills"/>
+  </url>
+  
+  <!-- Contact Section - English -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=en#contact</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.deyanmandadzhiev.com/?lang=bg#contact"/>
+  </url>
+  
+  <!-- Contact Section - Bulgarian -->
+  <url>
+    <loc>https://www.deyanmandadzhiev.com/?lang=bg#contact</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.deyanmandadzhiev.com/?lang=en#contact"/>
+  </url>
+
+</urlset>
